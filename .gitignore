@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+
+# build / local tooling
+dist/
+.output/
+.nitro/
+.vinxi/
+.tanstack/
+.vercel/
+*.log
+.DS_Store
+
+# env
+.env
+.env.*
+!.env.example
+
+# grok sandbox (niet meenemen)
+.grok/
+AGENTS.md
+AGENTS.project.md
+.project_id
+.node_modules.lock
+public/__grok/
+
+# bronmateriaal, geen site-assets
+attachments/
+screenshots/
+artifacts/

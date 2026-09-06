@@ -15,6 +15,7 @@ const KINDS = [
   { id: "workshop", label: "Workshop" },
   { id: "lezing", label: "Lezing" },
   { id: "leiding", label: "Schoolleiding" },
+  { id: "exemplaar", label: "Exemplaar" },
   { id: "anders", label: "Anders" },
 ] as const;
 
@@ -24,7 +25,7 @@ const schema = z.object({
   role: z.string().min(2, "Vul je functie in."),
   email: z.string().email("Vul een geldig e-mailadres in."),
   phone: z.string().optional(),
-  kind: z.enum(["studiedag", "workshop", "lezing", "leiding", "anders"]),
+  kind: z.enum(["studiedag", "workshop", "lezing", "leiding", "exemplaar", "anders"]),
   when: z.string().optional(),
   size: z.string().optional(),
   message: z.string().min(12, "Vertel kort wat je zoekt (minstens een zin)."),

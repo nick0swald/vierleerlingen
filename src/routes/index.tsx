@@ -98,6 +98,17 @@ function Home() {
               <ArrowRight />
             </Link>
           </Button>
+          <p className="mt-5 max-w-lg text-sm leading-relaxed text-cream/80">
+            Een school die eerst wil lezen:{" "}
+            <Link
+              to="/contact"
+              search={{ soort: "exemplaar" }}
+              className="underline decoration-cream/35 underline-offset-4 hover:decoration-cream"
+            >
+              vraag een exemplaar aan
+            </Link>
+            .
+          </p>
         </div>
       </Section>
     </main>

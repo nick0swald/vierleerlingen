@@ -3,7 +3,13 @@ import { ContactForm } from "@/components/contact-form";
 import { Kicker, Section } from "@/components/section";
 import { SITE } from "@/lib/content";
 
-type ContactKind = "studiedag" | "workshop" | "lezing" | "leiding" | "anders";
+type ContactKind =
+  | "studiedag"
+  | "workshop"
+  | "lezing"
+  | "leiding"
+  | "exemplaar"
+  | "anders";
 
 export const Route = createFileRoute("/contact")({
   validateSearch: (search: Record<string, unknown>): { soort?: ContactKind } => {
@@ -13,6 +19,7 @@ export const Route = createFileRoute("/contact")({
       soort === "workshop" ||
       soort === "lezing" ||
       soort === "leiding" ||
+      soort === "exemplaar" ||
       soort === "anders"
     ) {
       return { soort };
@@ -46,8 +53,8 @@ function ContactPage() {
             </h1>
             <p className="mt-5 text-base leading-relaxed text-ink">
               Vertel kort wie je bent en wat je zoekt. Benjamin reageert op
-              aanvragen voor studiedagen, workshops, lezingen en gesprekken met
-              schoolleiding.
+              aanvragen voor studiedagen, workshops, lezingen, gesprekken met
+              schoolleiding — en op scholen die een exemplaar willen lezen.
             </p>
             <p className="mt-8 text-sm leading-relaxed text-ink">
               Mail

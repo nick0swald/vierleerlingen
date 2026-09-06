@@ -1,11 +1,12 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "Ik heb maar vier leerlingen";
+const APP_NAME = "Ik heb maar vier leerlingen — Benjamin van der Speck";
 const APP_DESC =
   "Hulp als hij het niet kan. Grenzen als hij het niet wil. Het boek van Benjamin van der Speck — en studiedagen voor teams.";
 
@@ -15,6 +16,7 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: APP_NAME },
+      { name: "application-name", content: "Ik heb maar vier leerlingen" },
       { name: "description", content: APP_DESC },
       { name: "theme-color", content: "#1F4E3D" },
       { name: "author", content: "Benjamin van der Speck" },
@@ -41,6 +43,7 @@ export const Route = createRootRoute({
       </head>
       <body className="min-h-screen bg-cream font-sans text-ink">
         <PreviewHostBridge />
+        <StripComingSoon title={APP_NAME} />
         <AuthProvider>
           <SiteHeader />
           <Outlet />
@@ -51,3 +54,18 @@ export const Route = createRootRoute({
     </html>
   ),
 });
+
+function StripComingSoon({ title }: { title: string }) {
+  useEffect(() => {
+    const apply = () => {
+      if (/coming soon/i.test(document.title)) document.title = title;
+    };
+    apply();
+    const el = document.querySelector("title");
+    if (!el) return;
+    const obs = new MutationObserver(apply);
+    obs.observe(el, { childList: true, characterData: true, subtree: true });
+    return () => obs.disconnect();
+  }, [title]);
+  return null;
+}

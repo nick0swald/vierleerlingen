@@ -78,8 +78,6 @@ function BoekPage() {
         </p>
       </Section>
 
-      </Section>
-
       <Section tone="forest">
         <h2 className="font-display text-3xl sm:text-4xl">Verder</h2>
         <p className="mt-4 max-w-lg text-base leading-relaxed text-cream/75">

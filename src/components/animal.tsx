@@ -20,6 +20,17 @@ const ALTS: Record<AnimalKey, string> = {
   hert: "Hert — Stille Observator",
 };
 
+/** Walk toward “wil” (right). Lynx already faces that way. */
+const MIRROR_WIL = new Set<AnimalKey>([
+  "leeuw",
+  "wolf",
+  "panter",
+  "paard",
+  "ezel",
+  "os",
+  "kameel",
+]);
+
 /** In the 2×2 the mole is wide and low, so a shared height shrinks the others. */
 export const MATRIX_ANIMAL_CLASS: Record<PrimaryAnimal, string> = {
   leeuw: "h-[6.25rem] w-auto max-w-[92%] object-contain sm:h-28",
@@ -31,19 +42,26 @@ export const MATRIX_ANIMAL_CLASS: Record<PrimaryAnimal, string> = {
 export function AnimalImg({
   name,
   light = false,
+  flip = false,
   className,
   alt,
 }: {
   name: AnimalKey;
   light?: boolean;
+  flip?: boolean;
   className?: string;
   alt?: string;
 }) {
+  const mirror = flip || MIRROR_WIL.has(name);
   return (
     <img
-      src={`/images/${name}${light ? "-light" : ""}.png?v=5`}
+      src={`/images/${name}${light ? "-light" : ""}.png?v=6`}
       alt={alt ?? ALTS[name]}
-      className={cn("pointer-events-none select-none", className)}
+      className={cn(
+        "pointer-events-none select-none",
+        mirror && "-scale-x-100",
+        className,
+      )}
       draggable={false}
     />
   );

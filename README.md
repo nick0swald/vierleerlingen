@@ -25,8 +25,8 @@ In [`src/lib/content.ts`](src/lib/content.ts), object `SITE`:
 
 | Veld | Nu | Als je het hebt |
 | --- | --- | --- |
-| `email` | `info@benjaminvanderspeck.nl` | echte mailbox |
-| `emailReady` | `false` | `true` → mailto-link op Contact |
+| `email` | `info@benjaminvanderspeck.nl` | live, forward |
+| `emailReady` | `true` | — |
 | `orderUrl` | `""` | URL van de boekverkoper → knop *Bestel het boek* |
 
 Zolang `orderUrl` leeg is, toont de site “Binnenkort te bestellen”.
@@ -48,10 +48,10 @@ Live: [benjaminvanderspeck.nl](https://benjaminvanderspeck.nl) (Vercel, vanuit d
 
 1. Push naar `main` → Vercel bouwt opnieuw.
 2. Domein `benjaminvanderspeck.nl` + `www` staan al op Vercel.
-3. Mailforward `info@benjaminvanderspeck.nl` → echte inbox, daarna `emailReady: true`.
+3. Mailforward `info@benjaminvanderspeck.nl` staat.
 4. Vul `orderUrl` in als de bestellink er is.
 
-Het contactformulier slaat nu lokaal op (bevestiging op scherm). Voor echte mail: later Formspree, Resend of een server-actie koppelen.
+Het contactformulier mailt naar `info@benjaminvanderspeck.nl`.
 
 ## Inhoud en rechten
 

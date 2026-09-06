@@ -60,11 +60,11 @@ export const BOOK = {
   isbnDisplay: "978-94-039-3753-3",
 } as const;
 
-/** Zet emailReady op true zodra de mailbox live is. orderUrl vullen = bestelknop. */
+/** orderUrl vullen = knop “Bestel het boek”. */
 export const SITE = {
   domain: "benjaminvanderspeck.nl",
   email: "info@benjaminvanderspeck.nl",
-  emailReady: false,
+  emailReady: true,
   /** Leeg = bestellink volgt (geen shop-knop). */
   orderUrl: "",
 } as const;

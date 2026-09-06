@@ -59,6 +59,7 @@ function mailtoHref(values?: Partial<FormValues>) {
 export function ContactForm({ defaultKind }: { defaultKind?: FormValues["kind"] }) {
   const [sent, setSent] = useState<FormValues | null>(null);
   const [submitError, setSubmitError] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -75,14 +76,49 @@ export function ContactForm({ defaultKind }: { defaultKind?: FormValues["kind"] 
     },
   });
 
-  function onSubmit(values: FormValues) {
+  async function onSubmit(values: FormValues) {
     setSubmitError(false);
+    setSending(true);
     try {
-      const payload = { ...values, at: new Date().toISOString() };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      try {
+        localStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify({ ...values, at: new Date().toISOString() }),
+        );
+      } catch {
+        /* ignore quota */
+      }
+      const res = await fetch(`https://formsubmit.co/ajax/${SITE.email}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          school: values.school,
+          functie: values.role,
+          telefoon: values.phone ?? "",
+          vorm: values.kind,
+          periode: values.when ?? "",
+          groepsgrootte: values.size ?? "",
+          toelichting: values.message,
+          _subject: `Aanvraag ${values.kind} — ${values.school}`,
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
+      if (!res.ok) throw new Error("send");
+      const data = (await res.json()) as { success?: boolean | string };
+      if (data.success === false || data.success === "false") {
+        throw new Error("send");
+      }
       setSent(values);
     } catch {
       setSubmitError(true);
+    } finally {
+      setSending(false);
     }
   }
 
@@ -205,8 +241,8 @@ export function ContactForm({ defaultKind }: { defaultKind?: FormValues["kind"] 
         </div>
       ) : null}
 
-      <Button type="submit" size="lg">
-        Aanvraag versturen
+      <Button type="submit" size="lg" disabled={sending}>
+        {sending ? "Versturen…" : "Aanvraag versturen"}
       </Button>
 
       <div className="space-y-2 text-sm leading-relaxed text-muted">

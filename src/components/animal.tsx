@@ -2,19 +2,19 @@ import { cn } from "@/lib/utils";
 import type { AnimalKey, PrimaryAnimal } from "@/lib/content";
 
 const ALTS: Record<AnimalKey, string> = {
-  leeuw: "Leeuw — Enthousiaste Leider",
+  leeuw: "Leeuw — Betrokken Beheerser",
   wolf: "Wolf — Dominante Presteerder",
   lynx: "Lynx — Stille Expert",
   panter: "Panter — Teruggetrokken Topper",
-  paard: "Paard — Sociale Doorzetter",
+  paard: "Paard — Enthousiaste Worstelaar",
   ezel: "Ezel — Chaotische Hulpzoeker",
   os: "Os — Stille Doorzetter",
   kameel: "Kameel — Frustrerende Zwijger",
-  meeuw: "Meeuw — Disruptieve Grappenmaker",
+  meeuw: "Meeuw — Afgeleide Kenner",
   papegaai: "Papegaai — Charmante Slimmerik",
   adelaar: "Adelaar — Onafhankelijke Denker",
   struisvogel: "Struisvogel — Passieve Vermijder",
-  mol: "Mol — Geïsoleerde Terugtrekker",
+  mol: "Mol — Afhakende Zoeker",
   vos: "Vos — Sociale Opzoeker",
   zwijn: "Wild zwijn — Disruptieve Afhaker",
   hert: "Hert — Stille Observator",

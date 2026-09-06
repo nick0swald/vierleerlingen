@@ -81,6 +81,7 @@ function ModelPage() {
           <div className="rounded-2xl bg-cream p-6">
             <AnimalImg
               name={face.animalKey}
+              alt={`${face.animal} — ${face.title}`}
               className="mx-auto h-32 w-auto max-w-full object-contain sm:h-36"
             />
             <p className="mt-4 text-center text-[0.7rem] uppercase tracking-[0.16em] text-muted">

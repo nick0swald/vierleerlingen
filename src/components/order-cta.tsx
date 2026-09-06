@@ -1,4 +1,4 @@
-import { SITE } from "@/lib/content";
+import { BOOK, SITE } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -17,12 +17,13 @@ export function OrderCta({
     return (
       <p
         className={cn(
-          "text-sm",
-          invert ? "text-cream/55" : "text-muted",
+          "max-w-xs text-sm leading-relaxed",
+          invert ? "text-cream/80" : "text-muted",
           className,
         )}
       >
-        Binnenkort te bestellen
+        Boek verschijnt via {BOOK.publisher} · ISBN {BOOK.isbn} — bestellink
+        volgt.
       </p>
     );
   }

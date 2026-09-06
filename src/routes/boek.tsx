@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { OrderCta } from "@/components/order-cta";
 import { Kicker, Section } from "@/components/section";
 import { Button } from "@/components/ui/button";
-import { BOOK } from "@/lib/content";
+import { BOOK, TUSSENUUR } from "@/lib/content";
 
 export const Route = createFileRoute("/boek")({
   head: () => ({
@@ -47,9 +47,8 @@ function BoekPage() {
             <div className="mt-8 max-w-xl space-y-4 text-base leading-relaxed text-ink">
               <p>
                 <em>Ik heb maar vier leerlingen</em> is een compact
-                praktijkboek voor wie voor de klas staat. Geen nieuwe grande
-                visie. Wel één kader om gedrag te lezen vóór je reageert: niet
-                kunnen versus niet willen.
+                praktijkboek voor wie voor de klas staat. Geen nieuwe grote
+                visie. Wel één kader om gedrag te lezen vóór je reageert.
               </p>
             </div>
             <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
@@ -78,9 +77,24 @@ function BoekPage() {
         </p>
       </Section>
 
+      <Section>
+        <Kicker>{TUSSENUUR.kicker}</Kicker>
+        <h2 className="mt-3 max-w-2xl font-display text-3xl sm:text-4xl">
+          Wat je in de zak houdt.
+        </h2>
+        <blockquote className="mt-8 max-w-xl space-y-3 border-l-2 border-forest pl-5 text-base leading-relaxed text-ink">
+          {TUSSENUUR.lines.map((line) => (
+            <p key={line}>{line}</p>
+          ))}
+        </blockquote>
+        <p className="mt-6 text-sm text-muted">
+          Fragment uit hoofdstuk 12, <em>Wat je morgen doet</em>.
+        </p>
+      </Section>
+
       <Section tone="forest">
         <h2 className="font-display text-3xl sm:text-4xl">Verder</h2>
-        <p className="mt-4 max-w-lg text-base leading-relaxed text-cream/75">
+        <p className="mt-4 max-w-lg text-base leading-relaxed text-cream/80">
           Het boek lezen, of het kader eerst horen op een studiedag.
         </p>
         <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">

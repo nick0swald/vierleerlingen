@@ -49,24 +49,15 @@ function ContactPage() {
               aanvragen voor studiedagen, workshops, lezingen en gesprekken met
               schoolleiding.
             </p>
-            <p className="mt-8 text-sm leading-relaxed text-muted">
+            <p className="mt-8 text-sm leading-relaxed text-ink">
               Mail
               <br />
-              {SITE.emailReady ? (
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="text-forest underline decoration-forest/30 underline-offset-4"
-                >
-                  {SITE.email}
-                </a>
-              ) : (
-                <span className="text-ink">
-                  {SITE.email}
-                  <span className="mt-1 block text-xs text-muted">
-                    Mailbox wordt ingesteld
-                  </span>
-                </span>
-              )}
+              <a
+                href={`mailto:${SITE.email}`}
+                className="text-forest underline decoration-forest/30 underline-offset-4"
+              >
+                {SITE.email}
+              </a>
             </p>
           </div>
           <div className="rounded-2xl bg-paper p-5 shadow-[var(--shadow-border)] sm:p-8">

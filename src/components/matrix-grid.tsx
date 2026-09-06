@@ -19,6 +19,7 @@ function Cell({
       </span>
       <AnimalImg
         name={q.animalKey}
+        alt={`${q.animal} — ${q.name}`}
         className={cn("mx-auto my-3", MATRIX_ANIMAL_CLASS[q.animalKey])}
       />
       <p className="font-display text-lg leading-tight text-ink sm:text-xl">

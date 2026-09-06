@@ -63,7 +63,7 @@ function BenjaminPage() {
         <h2 className="font-display text-3xl sm:text-4xl">
           Nodig Benjamin uit
         </h2>
-        <p className="mt-4 max-w-lg text-base leading-relaxed text-cream/75">
+        <p className="mt-4 max-w-lg text-base leading-relaxed text-cream/80">
           Studiedag, workshop, lezing of een gesprek met schoolleiding.
         </p>
         <Button asChild variant="cream" size="lg" className="mt-8">

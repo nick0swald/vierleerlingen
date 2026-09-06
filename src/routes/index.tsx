@@ -101,6 +101,7 @@ function Home() {
             >
               <AnimalImg
                 name={q.animalKey}
+                alt={`${q.animal} — ${q.name}`}
                 className={
                   q.animalKey === "mol"
                     ? "h-20 w-28 shrink-0 object-contain object-center sm:h-24 sm:w-32"
@@ -120,12 +121,12 @@ function Home() {
       </Section>
 
       <Section tone="forest">
-        <Kicker className="text-cream/50">Scholingen</Kicker>
+        <Kicker className="text-cream/70">Scholingen</Kicker>
         <h2 className="mt-3 max-w-2xl font-display text-3xl sm:text-4xl">
           Een studiedag maakt het tastbaar: eigen klassen, eigen cases, één
           maandagactie mee naar huis.
         </h2>
-        <p className="mt-4 max-w-lg text-base leading-relaxed text-cream/75">
+        <p className="mt-4 max-w-lg text-base leading-relaxed text-cream/80">
           Het boek is het visitekaartje. Benjamin komt naar de school.
         </p>
         <div className="mt-8">

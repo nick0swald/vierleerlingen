@@ -15,7 +15,7 @@ export function SiteFooter() {
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-cream/70">
               {BOOK.subtitle}
             </p>
-            <p className="mt-6 text-sm text-cream/55">
+            <p className="mt-6 text-sm text-cream/75">
               {BOOK.author}
               <br />
               {BOOK.publisher} · {BOOK.edition.toLowerCase()} {BOOK.year}
@@ -24,7 +24,7 @@ export function SiteFooter() {
             </p>
           </div>
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.16em] text-cream/45">
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-cream/70">
               Op deze site
             </p>
             <ul className="mt-4 space-y-2 text-sm">
@@ -43,10 +43,10 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.16em] text-cream/45">
+            <p className="text-xs font-medium uppercase tracking-[0.16em] text-cream/70">
               Uitnodigen
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-cream/75">
+            <p className="mt-4 text-sm leading-relaxed text-cream/80">
               Studiedag, workshop of lezing. Benjamin komt naar de school.
             </p>
             <Link
@@ -55,7 +55,14 @@ export function SiteFooter() {
             >
               Nodig Benjamin uit
             </Link>
-            <p className="mt-6 text-sm text-cream/55">{SITE.email}</p>
+            <p className="mt-6 text-sm text-cream/80">
+              <a
+                href={`mailto:${SITE.email}`}
+                className="underline decoration-cream/30 underline-offset-4 hover:decoration-cream"
+              >
+                {SITE.email}
+              </a>
+            </p>
           </div>
         </div>
         <img
@@ -63,7 +70,7 @@ export function SiteFooter() {
           alt=""
           className="mt-12 h-16 w-full object-contain object-left opacity-70 sm:h-20"
         />
-        <p className="mt-8 text-xs leading-relaxed text-cream/40">
+        <p className="mt-8 text-xs leading-relaxed text-cream/65">
           © {BOOK.author} · {BOOK.publisher} · ISBN {BOOK.isbnDisplay}
           <br />
           Geen tracking behalve wat de host nodig heeft.

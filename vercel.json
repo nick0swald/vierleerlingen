@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/het-boek",
+      "destination": "/boek",
+      "permanent": true
+    },
+    {
+      "source": "/het-model",
+      "destination": "/model",
+      "permanent": true
+    }
+  ]
+}

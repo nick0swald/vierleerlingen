@@ -65,8 +65,19 @@ export const SITE = {
   domain: "benjaminvanderspeck.nl",
   email: "info@benjaminvanderspeck.nl",
   emailReady: false,
-  /** Leeg = “Binnenkort te bestellen”. */
+  /** Leeg = bestellink volgt (geen shop-knop). */
   orderUrl: "",
+} as const;
+
+/** Fragment uit het boek (hfdst. 12), voor op de boekpagina. */
+export const TUSSENUUR = {
+  kicker: "Voor in een tussenuur",
+  lines: [
+    "Twee vragen. Kan hij het. Wil hij het. Dan hulp, grenzen of vuist.",
+    "Eerst vier lijsten, dan plotten. Last van structuur. Positief opvallend. Vergeten. Bij de hand.",
+    "Check kunnen vóór wil. Gevolg op gewicht.",
+    "Geen etiket. Geen LVS-dier. Geen nakaarten.",
+  ],
 } as const;
 
 export const NAV = [
@@ -225,7 +236,7 @@ export const QUADRANTS: Quadrant[] = [
     understanding: "hoog",
     want: false,
     can: true,
-    kern: "Redt het zelf; kost de klas dit uur. Asociaal naar de groep dit uur — geen karaktervonnis.",
+    kern: "Redt het zelf; kost de klas dit uur. Geen karaktervonnis — wel een probleem voor de groep dit uur.",
     valkuil:
       "Meer uitleg geven alsof hij het niet kan; of alleen straffen zonder opdracht op niveau.",
     monday:

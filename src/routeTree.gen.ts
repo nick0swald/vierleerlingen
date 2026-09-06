@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BenjaminRouteImport } from './routes/benjamin'
 import { Route as BoekRouteImport } from './routes/boek'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as HetBoekRouteImport } from './routes/het-boek'
+import { Route as HetModelRouteImport } from './routes/het-model'
 import { Route as ModelRouteImport } from './routes/model'
 import { Route as ScholingenRouteImport } from './routes/scholingen'
 
@@ -36,6 +38,16 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HetBoekRoute = HetBoekRouteImport.update({
+  id: '/het-boek',
+  path: '/het-boek',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HetModelRoute = HetModelRouteImport.update({
+  id: '/het-model',
+  path: '/het-model',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ModelRoute = ModelRouteImport.update({
   id: '/model',
   path: '/model',
@@ -52,6 +64,8 @@ export interface FileRoutesByFullPath {
   '/benjamin': typeof BenjaminRoute
   '/boek': typeof BoekRoute
   '/contact': typeof ContactRoute
+  '/het-boek': typeof HetBoekRoute
+  '/het-model': typeof HetModelRoute
   '/model': typeof ModelRoute
   '/scholingen': typeof ScholingenRoute
 }
@@ -60,6 +74,8 @@ export interface FileRoutesByTo {
   '/benjamin': typeof BenjaminRoute
   '/boek': typeof BoekRoute
   '/contact': typeof ContactRoute
+  '/het-boek': typeof HetBoekRoute
+  '/het-model': typeof HetModelRoute
   '/model': typeof ModelRoute
   '/scholingen': typeof ScholingenRoute
 }
@@ -69,20 +85,40 @@ export interface FileRoutesById {
   '/benjamin': typeof BenjaminRoute
   '/boek': typeof BoekRoute
   '/contact': typeof ContactRoute
+  '/het-boek': typeof HetBoekRoute
+  '/het-model': typeof HetModelRoute
   '/model': typeof ModelRoute
   '/scholingen': typeof ScholingenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/benjamin' | '/boek' | '/contact' | '/model' | '/scholingen'
+  fullPaths:
+    | '/'
+    | '/benjamin'
+    | '/boek'
+    | '/contact'
+    | '/het-boek'
+    | '/het-model'
+    | '/model'
+    | '/scholingen'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/benjamin' | '/boek' | '/contact' | '/model' | '/scholingen'
+  to:
+    | '/'
+    | '/benjamin'
+    | '/boek'
+    | '/contact'
+    | '/het-boek'
+    | '/het-model'
+    | '/model'
+    | '/scholingen'
   id:
     | '__root__'
     | '/'
     | '/benjamin'
     | '/boek'
     | '/contact'
+    | '/het-boek'
+    | '/het-model'
     | '/model'
     | '/scholingen'
   fileRoutesById: FileRoutesById
@@ -92,6 +128,8 @@ export interface RootRouteChildren {
   BenjaminRoute: typeof BenjaminRoute
   BoekRoute: typeof BoekRoute
   ContactRoute: typeof ContactRoute
+  HetBoekRoute: typeof HetBoekRoute
+  HetModelRoute: typeof HetModelRoute
   ModelRoute: typeof ModelRoute
   ScholingenRoute: typeof ScholingenRoute
 }
@@ -126,6 +164,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/het-boek': {
+      id: '/het-boek'
+      path: '/het-boek'
+      fullPath: '/het-boek'
+      preLoaderRoute: typeof HetBoekRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/het-model': {
+      id: '/het-model'
+      path: '/het-model'
+      fullPath: '/het-model'
+      preLoaderRoute: typeof HetModelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/model': {
       id: '/model'
       path: '/model'
@@ -148,6 +200,8 @@ const rootRouteChildren: RootRouteChildren = {
   BenjaminRoute: BenjaminRoute,
   BoekRoute: BoekRoute,
   ContactRoute: ContactRoute,
+  HetBoekRoute: HetBoekRoute,
+  HetModelRoute: HetModelRoute,
   ModelRoute: ModelRoute,
   ScholingenRoute: ScholingenRoute,
 }

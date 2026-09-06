@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { SITE } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 const KINDS = [
@@ -33,8 +34,30 @@ type FormValues = z.infer<typeof schema>;
 
 const STORAGE_KEY = "vierleerlingen-aanvraag";
 
+function mailtoHref(values?: Partial<FormValues>) {
+  const subject = "Aanvraag — Ik heb maar vier leerlingen";
+  const body = values
+    ? [
+        `Naam: ${values.name ?? ""}`,
+        `Functie: ${values.role ?? ""}`,
+        `School: ${values.school ?? ""}`,
+        `E-mail: ${values.email ?? ""}`,
+        values.phone ? `Telefoon: ${values.phone}` : null,
+        `Vorm: ${values.kind ?? ""}`,
+        values.when ? `Periode: ${values.when}` : null,
+        values.size ? `Groepsgrootte: ${values.size}` : null,
+        "",
+        values.message ?? "",
+      ]
+        .filter((line) => line !== null)
+        .join("\n")
+    : "";
+  return `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 export function ContactForm({ defaultKind }: { defaultKind?: FormValues["kind"] }) {
   const [sent, setSent] = useState<FormValues | null>(null);
+  const [submitError, setSubmitError] = useState(false);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
@@ -52,13 +75,14 @@ export function ContactForm({ defaultKind }: { defaultKind?: FormValues["kind"] 
   });
 
   function onSubmit(values: FormValues) {
-    const payload = { ...values, at: new Date().toISOString() };
+    setSubmitError(false);
     try {
+      const payload = { ...values, at: new Date().toISOString() };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+      setSent(values);
     } catch {
-      /* ignore quota */
+      setSubmitError(true);
     }
-    setSent(values);
   }
 
   if (sent) {
@@ -68,7 +92,7 @@ export function ContactForm({ defaultKind }: { defaultKind?: FormValues["kind"] 
           <Check className="size-5" />
         </div>
         <h3 className="mt-5 font-display text-3xl">Bedankt</h3>
-        <p className="mt-3 max-w-lg text-base leading-relaxed text-cream/85">
+        <p className="mt-3 max-w-lg text-base leading-relaxed text-cream/90">
           Bedankt. Je aanvraag staat. Benjamin neemt contact op via het
           opgegeven adres.
         </p>
@@ -164,9 +188,33 @@ export function ContactForm({ defaultKind }: { defaultKind?: FormValues["kind"] 
         <Textarea id="message" {...register("message")} />
       </Field>
 
+      {submitError ? (
+        <div
+          role="alert"
+          className="rounded-lg border border-destructive/40 bg-cream px-4 py-3 text-sm leading-relaxed text-ink"
+        >
+          Versturen is niet gelukt. Mail Benjamin rechtstreeks via{" "}
+          <a
+            href={mailtoHref(watch())}
+            className="text-forest underline decoration-forest/30 underline-offset-4"
+          >
+            {SITE.email}
+          </a>
+          .
+        </div>
+      ) : null}
+
       <Button type="submit" size="lg">
         Aanvraag versturen
       </Button>
+
+      <div className="space-y-2 text-sm leading-relaxed text-muted">
+        <p>Reactietijd: Meestal binnen 3 werkdagen.</p>
+        <p>
+          Privacy: Je gegevens gebruik ik alleen om op deze aanvraag te
+          reageren. Geen nieuwsbrief, geen doorverkoop.
+        </p>
+      </div>
     </form>
   );
 }

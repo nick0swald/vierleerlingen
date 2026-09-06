@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { OrderCta } from "@/components/order-cta";
 import { Kicker, Section } from "@/components/section";
 import { Button } from "@/components/ui/button";
-import { BOOK, CHAPTERS } from "@/lib/content";
+import { BOOK } from "@/lib/content";
 
 export const Route = createFileRoute("/boek")({
   head: () => ({
@@ -78,37 +78,6 @@ function BoekPage() {
         </p>
       </Section>
 
-      <Section>
-        <Kicker>Gegevens</Kicker>
-        <p className="mt-4 max-w-xl text-base leading-relaxed text-ink">
-          {BOOK.author} · {BOOK.publisher} · {BOOK.edition.toLowerCase()}{" "}
-          {BOOK.year} · {BOOK.format} · ISBN {BOOK.isbnDisplay}
-        </p>
-      </Section>
-
-      <Section tone="paper">
-        <Kicker>Inhoud</Kicker>
-        <h2 className="mt-3 font-display text-3xl sm:text-4xl">
-          Dertien hoofdstukken
-        </h2>
-        <ol className="mt-10 divide-y divide-line border-y border-line">
-          {CHAPTERS.map((ch) => (
-            <li
-              key={ch.n}
-              className="grid grid-cols-[3rem_1fr] items-baseline gap-4 py-4"
-            >
-              <span className="font-display text-xl text-forest">
-                {String(ch.n).padStart(2, "0")}
-              </span>
-              <span className="font-display text-lg leading-snug text-ink">
-                {ch.title}
-              </span>
-            </li>
-          ))}
-        </ol>
-        <p className="mt-6 text-sm text-muted">
-          Plus: <em>Voor in een tussenuur</em> — de kern per hoofdstuk.
-        </p>
       </Section>
 
       <Section tone="forest">

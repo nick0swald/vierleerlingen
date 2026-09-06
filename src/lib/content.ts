@@ -81,7 +81,6 @@ export const TUSSENUUR = {
 } as const;
 
 export const NAV = [
-  { to: "/boek", label: "Het boek" },
   { to: "/model", label: "Het model" },
   { to: "/benjamin", label: "Benjamin" },
   { to: "/scholingen", label: "Scholingen" },

@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { OrderCta } from "@/components/order-cta";
 import { Kicker, Section } from "@/components/section";
 import { Button } from "@/components/ui/button";
 import { BOOK } from "@/lib/content";
@@ -41,12 +40,6 @@ function Home() {
           <p className="mt-8 max-w-lg font-display text-xl italic leading-snug text-cream/85 sm:text-2xl">
             {BOOK.subtitle}
           </p>
-          <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-            <Button asChild variant="cream" size="lg">
-              <Link to="/boek">Lees over het boek</Link>
-            </Button>
-            <OrderCta invert className="sm:ml-2" />
-          </div>
         </div>
         <img
           src="/images/animals-strip-light.png?v=4"
@@ -79,6 +72,49 @@ function Home() {
               <ArrowRight />
             </Link>
           </Button>
+        </div>
+      </Section>
+
+      <Section tone="paper" id="boek">
+        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,18rem)_1fr]">
+          <figure>
+            <img
+              src="/images/cover.png?v=3"
+              alt={`Kaft van ${BOOK.title}`}
+              className="w-full max-w-xs outline outline-1 -outline-offset-1 outline-ink/10"
+            />
+            <figcaption className="mt-4 text-sm text-muted">
+              {BOOK.publisher} · {BOOK.edition} {BOOK.year} · {BOOK.format}
+              <br />
+              ISBN {BOOK.isbnDisplay}
+            </figcaption>
+          </figure>
+          <div>
+            <Kicker>Het boek</Kicker>
+            <h2 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
+              {BOOK.title}
+            </h2>
+            <p className="mt-4 font-display text-xl italic text-forest">
+              {BOOK.subtitle}
+            </p>
+            <div className="mt-8 max-w-xl space-y-4 text-base leading-relaxed text-ink">
+              <p>
+                <em>Ik heb maar vier leerlingen</em> is een compact
+                praktijkboek voor wie voor de klas staat. Geen nieuwe grote
+                visie. Wel één kader om gedrag te lezen vóór je reageert.
+              </p>
+            </div>
+            <p className="mt-8 text-sm leading-relaxed text-muted">
+              <Link
+                to="/contact"
+                search={{ soort: "exemplaar" }}
+                className="text-forest underline decoration-forest/30 underline-offset-4 hover:decoration-forest"
+              >
+                Vraag een exemplaar aan
+              </Link>{" "}
+              voor je school.
+            </p>
+          </div>
         </div>
       </Section>
 

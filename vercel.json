@@ -1,8 +1,13 @@
 {
   "redirects": [
     {
+      "source": "/boek",
+      "destination": "/#boek",
+      "statusCode": 301
+    },
+    {
       "source": "/het-boek",
-      "destination": "/boek",
+      "destination": "/#boek",
       "statusCode": 301
     },
     {

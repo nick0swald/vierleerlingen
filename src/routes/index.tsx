@@ -1,11 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { MatrixGrid } from "@/components/matrix-grid";
 import { OrderCta } from "@/components/order-cta";
 import { Kicker, Section } from "@/components/section";
 import { Button } from "@/components/ui/button";
-import { BOOK, QUADRANTS } from "@/lib/content";
-import { AnimalImg } from "@/components/animal";
+import { BOOK } from "@/lib/content";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -74,49 +72,13 @@ function Home() {
             2. Wil hij het?
           </p>
         </div>
-      </Section>
-
-      <Section tone="paper">
-        <Kicker>Twee assen</Kicker>
-        <h2 className="mt-3 max-w-2xl font-display text-3xl sm:text-4xl">
-          Wil × kan. Vier posities.
-        </h2>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
-          Links wil niet, rechts wil wel. Boven kan wel, onder kan niet. Een
-          positie dit uur — geen etiket voor het rapport.
-        </p>
-        <div className="mt-10 md:pl-8">
-          <MatrixGrid />
-        </div>
-      </Section>
-
-      <Section>
-        <div className="grid gap-6 lg:grid-cols-2">
-          {QUADRANTS.map((q) => (
-            <Link
-              key={q.id}
-              to="/model"
-              hash={q.id}
-              className="group flex gap-5 rounded-2xl bg-paper p-5 shadow-[var(--shadow-border)] transition-transform duration-200 hover:-translate-y-0.5 sm:p-6"
-            >
-              <AnimalImg
-                name={q.animalKey}
-                alt={`${q.animal} — ${q.name}`}
-                className={
-                  q.animalKey === "mol"
-                    ? "h-20 w-28 shrink-0 object-contain object-center sm:h-24 sm:w-32"
-                    : "h-24 w-28 shrink-0 object-contain object-center sm:h-28 sm:w-32"
-                }
-              />
-              <div>
-                <p className="text-[0.7rem] uppercase tracking-[0.16em] text-muted">
-                  {q.number}. {q.animal}
-                </p>
-                <h3 className="mt-1 font-display text-2xl text-ink">{q.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{q.kern}</p>
-              </div>
+        <div className="mt-10">
+          <Button asChild variant="outline" size="lg">
+            <Link to="/model">
+              Het model
+              <ArrowRight />
             </Link>
-          ))}
+          </Button>
         </div>
       </Section>
 

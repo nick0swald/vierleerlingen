@@ -43,18 +43,18 @@ function BenjaminPage() {
           </p>
           <p>
             Het boek is bedoeld als gedeelde taal voor teams, niet als zoveelste
-            theorie van buitenaf. Geen Magister-labels, geen HR-jargon — wel
-            Linda, Freek, Koen en Noor, en een manier van kijken die je
-            maandagochtend al kunt gebruiken. Benjamin werkt vanuit de praktijk
-            van het Nederlandse voortgezet onderwijs en zoekt bewust de gulden
-            middenweg tussen “iedere leerling is uniek” en “de leerling”.
+            theorie van buitenaf. Geen Magister-labels, geen HR-jargon — wel een
+            manier van kijken die je maandagochtend al kunt gebruiken. Benjamin
+            werkt vanuit de praktijk van het Nederlandse voortgezet onderwijs en
+            zoekt bewust de gulden middenweg tussen “iedere leerling is uniek”
+            en “de leerling”.
           </p>
           <p>
             <em>Ik heb maar vier leerlingen</em> (Uitgeverij Noordhoek, 2025) is
             zijn eerste boek. Daarmee wil hij scholen en opleidingen een
             gemeenschappelijk vocabulaire geven voor gedrag in de les — zodat
             teams sneller eens zijn over wat ze zien, en sneller weten wat ze
-            doen.
+            moeten doen.
           </p>
         </div>
       </Section>

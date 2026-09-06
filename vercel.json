@@ -3,12 +3,12 @@
     {
       "source": "/het-boek",
       "destination": "/boek",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/het-model",
       "destination": "/model",
-      "permanent": true
+      "statusCode": 301
     }
   ]
 }

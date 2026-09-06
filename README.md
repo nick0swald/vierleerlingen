@@ -2,7 +2,7 @@
 
 Website bij het boek *Ik heb maar vier leerlingen* van Benjamin van der Speck (Uitgeverij Noordhoek, 2025, ISBN 9789403937533).
 
-Publieke site: **vierleerlingen.nl** (in aanvraag). Soft landing voor het boek en studiedagen. Geen harde verkoop, geen diagnostische quiz.
+Publieke site: **[benjaminvanderspeck.nl](https://benjaminvanderspeck.nl)**. Soft landing voor het boek en studiedagen. Geen harde verkoop, geen diagnostische quiz.
 
 ## Lokaal draaien
 
@@ -25,7 +25,7 @@ In [`src/lib/content.ts`](src/lib/content.ts), object `SITE`:
 
 | Veld | Nu | Als je het hebt |
 | --- | --- | --- |
-| `email` | `info@vierleerlingen.nl` | echte mailbox |
+| `email` | `info@benjaminvanderspeck.nl` | echte mailbox |
 | `emailReady` | `false` | `true` → mailto-link op Contact |
 | `orderUrl` | `""` | URL van de boekverkoper → knop *Bestel het boek* |
 
@@ -44,13 +44,12 @@ Zolang `orderUrl` leeg is, toont de site “Binnenkort te bestellen”.
 
 ## Deploy
 
-De stack is **TanStack Start** + **Vite** + **Tailwind**.
+Live: [benjaminvanderspeck.nl](https://benjaminvanderspeck.nl) (Vercel, vanuit deze GitHub-repo).
 
-1. Koppel deze repo aan [Vercel](https://vercel.com) (of Netlify).
-2. Build command: `npm run build`
-3. Koppel daarna `vierleerlingen.nl` in de hoster (DNS CNAME/A zoals de hoster aangeeft).
-4. Zet een mailforward `info@vierleerlingen.nl` → je echte inbox.
-5. Vul `orderUrl` en `emailReady` in, commit, opnieuw deployen.
+1. Push naar `main` → Vercel bouwt opnieuw.
+2. Domein `benjaminvanderspeck.nl` + `www` staan al op Vercel.
+3. Mailforward `info@benjaminvanderspeck.nl` → echte inbox, daarna `emailReady: true`.
+4. Vul `orderUrl` in als de bestellink er is.
 
 Het contactformulier slaat nu lokaal op (bevestiging op scherm). Voor echte mail: later Formspree, Resend of een server-actie koppelen.
 

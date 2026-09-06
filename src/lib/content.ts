@@ -62,8 +62,8 @@ export const BOOK = {
 
 /** Zet emailReady op true zodra de mailbox live is. orderUrl vullen = bestelknop. */
 export const SITE = {
-  domain: "vierleerlingen.nl",
-  email: "info@vierleerlingen.nl",
+  domain: "benjaminvanderspeck.nl",
+  email: "info@benjaminvanderspeck.nl",
   emailReady: false,
   /** Leeg = “Binnenkort te bestellen”. */
   orderUrl: "",

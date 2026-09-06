@@ -11,7 +11,7 @@ export const Route = createFileRoute("/benjamin")({
       {
         name: "description",
         content:
-          "Kort over Benjamin van der Speck. Hij schrijft vanuit de les: kan hij het, wil hij het.",
+          "Benjamin van der Speck is docent en auteur van Ik heb maar vier leerlingen. Hij schrijft vanuit de les: kunnen en willen.",
       },
     ],
   }),
@@ -26,18 +26,35 @@ function BenjaminPage() {
         <h1 className="mt-3 font-display text-4xl leading-tight sm:text-5xl">
           {BOOK.author}
         </h1>
-        <div className="mt-8 max-w-2xl space-y-4 text-lg leading-relaxed text-ink">
+        <div className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-ink">
           <p>
-            Benjamin staat al jaren voor de klas, het grootste deel in het vmbo.
-            Hij zag te veel onderwijsboekjes van mensen die zelden met de
-            voeten in dezelfde klei stonden. Dit boek is een mengsel van
-            praktijk en wat hij onderweg leerde — geen nieuw etiket, wel een
-            kader voor dit uur.
+            Benjamin van der Speck is docent en auteur van{" "}
+            <em>Ik heb maar vier leerlingen</em>. Hij schrijft vanuit de les,
+            niet vanaf de studiedag: over wat er gebeurt als een leerling het
+            niet kan — en wat er gebeurt als hij het niet wil.
           </p>
           <p>
-            Hij schrijft zodat collega’s een gedeelde taal hebben: kan hij het,
-            wil hij het. Hulp als hij het niet kan. Grenzen als hij het niet
-            wil.
+            In zijn werk staat een eenvoudig maar hardnekkig idee centraal. In
+            elke klas zie je eindeloos unieke leerlingen, en toch herken je
+            steeds dezelfde patronen. Benjamin bundelt die tot vier types langs
+            twee assen: kunnen en willen. Wie het niet kan, verdient hulp. Wie
+            het niet wil, verdient grenzen. Die twee door elkaar halen is de
+            duurste fout in een lesuur.
+          </p>
+          <p>
+            Het boek is bedoeld als gedeelde taal voor teams, niet als zoveelste
+            theorie van buitenaf. Geen Magister-labels, geen HR-jargon — wel
+            Linda, Freek, Koen en Noor, en een manier van kijken die je
+            maandagochtend al kunt gebruiken. Benjamin werkt vanuit de praktijk
+            van het Nederlandse voortgezet onderwijs en zoekt bewust de gulden
+            middenweg tussen “iedere leerling is uniek” en “de leerling”.
+          </p>
+          <p>
+            <em>Ik heb maar vier leerlingen</em> (Uitgeverij Noordhoek, 2025) is
+            zijn eerste boek. Daarmee wil hij scholen en opleidingen een
+            gemeenschappelijk vocabulaire geven voor gedrag in de les — zodat
+            teams sneller eens zijn over wat ze zien, en sneller weten wat ze
+            doen.
           </p>
         </div>
       </Section>

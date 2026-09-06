@@ -53,7 +53,7 @@ export function SiteFooter() {
               to="/contact"
               className="mt-4 inline-block text-sm text-cream underline decoration-cream/30 underline-offset-4 hover:decoration-cream"
             >
-              Studiedag aanvragen
+              Nodig Benjamin uit
             </Link>
             <p className="mt-6 text-sm text-cream/55">{SITE.email}</p>
           </div>

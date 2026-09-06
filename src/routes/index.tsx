@@ -45,12 +45,6 @@ function Home() {
           </p>
           <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             <Button asChild variant="cream" size="lg">
-              <Link to="/contact">
-                Studiedag aanvragen
-                <ArrowRight />
-              </Link>
-            </Button>
-            <Button asChild variant="outlineCream" size="lg">
               <Link to="/boek">Lees over het boek</Link>
             </Button>
             <OrderCta invert className="sm:ml-2" />
@@ -134,15 +128,12 @@ function Home() {
         <p className="mt-4 max-w-lg text-base leading-relaxed text-cream/75">
           Het boek is het visitekaartje. Benjamin komt naar de school.
         </p>
-        <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+        <div className="mt-8">
           <Button asChild variant="cream" size="lg">
             <Link to="/contact">
-              Studiedag aanvragen
+              Nodig Benjamin uit
               <ArrowRight />
             </Link>
-          </Button>
-          <Button asChild variant="outlineCream" size="lg">
-            <Link to="/scholingen">Vormen</Link>
           </Button>
         </div>
       </Section>

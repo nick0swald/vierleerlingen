@@ -38,7 +38,7 @@ export function SiteHeader() {
             </Link>
           ))}
           <Button asChild variant="cream" size="sm" className="ml-3">
-            <Link to="/contact">Studiedag aanvragen</Link>
+            <Link to="/contact">Contact</Link>
           </Button>
         </nav>
 
@@ -72,7 +72,7 @@ export function SiteHeader() {
             ))}
             <Button asChild variant="cream" className="mt-3">
               <Link to="/contact" onClick={() => setOpen(false)}>
-                Studiedag aanvragen
+                Contact
               </Link>
             </Button>
           </nav>

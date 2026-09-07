@@ -82,7 +82,7 @@ function ModelPage() {
             <AnimalImg
               name={face.animalKey}
               alt={`${face.animal} — ${face.title}`}
-              className="mx-auto h-32 w-auto max-w-full object-contain sm:h-36"
+              className="mx-auto h-36 w-auto max-w-full object-contain object-top sm:h-40"
             />
             <p className="mt-4 text-center text-[0.7rem] uppercase tracking-[0.16em] text-muted">
               {face.code} {face.animal}

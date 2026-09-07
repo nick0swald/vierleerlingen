@@ -20,10 +20,11 @@ const ALTS: Record<AnimalKey, string> = {
   hert: "Hert — Stille Observator",
 };
 
-/** Walk toward “wil” (right). Lynx already faces that way. */
+/** Walk toward “wil” (right). */
 const MIRROR_WIL = new Set<AnimalKey>([
   "leeuw",
   "wolf",
+  "lynx",
   "panter",
   "paard",
   "ezel",
@@ -55,7 +56,7 @@ export function AnimalImg({
   const mirror = flip || MIRROR_WIL.has(name);
   return (
     <img
-      src={`/images/${name}${light ? "-light" : ""}.png?v=6`}
+      src={`/images/${name}${light ? "-light" : ""}.png?v=7`}
       alt={alt ?? ALTS[name]}
       className={cn(
         "pointer-events-none select-none",

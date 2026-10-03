@@ -56,7 +56,7 @@ export function AnimalImg({
   const mirror = flip || MIRROR_WIL.has(name);
   return (
     <img
-      src={`/images/${name}${light ? "-light" : ""}.png?v=7`}
+      src={`/images/${name}${light ? "-light" : ""}.png?v=8`}
       alt={alt ?? ALTS[name]}
       className={cn(
         "pointer-events-none select-none",
